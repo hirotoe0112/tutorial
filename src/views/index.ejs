@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/public/css/site.css"/>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <td>
+            タイトル
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (var i in data.list){ %>
+          <tr>
+            <td>
+              <form action="/detail" method="POST">
+                <input type="submit" class="title" value="<%- data.list[i].name %>">
+                <input type="hidden" name="filename" value="<%- data.list[i].file %>">
+              </form>
+            </td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </body>
+</html>
