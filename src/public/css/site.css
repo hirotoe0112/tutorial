@@ -1,0 +1,11 @@
+table{
+  padding: 10px;
+}
+
+input[type='submit']{
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  color: blue;
+}
