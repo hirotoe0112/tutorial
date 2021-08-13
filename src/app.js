@@ -5,6 +5,7 @@ var app = express();
 //domain/public/ファイルパスで静的ファイルにアクセスできるようになる
 app.use('/public', express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
+app.set('views', './src/views')
 
 app.use('/', require('./routes/index'));
 
