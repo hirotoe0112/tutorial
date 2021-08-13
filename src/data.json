@@ -1,0 +1,11 @@
+{
+  "path": "/public/data",
+  "list": [
+    {"name": "NodeとJavaScript", "file": "overview.md"}
+    ,{"name": "簡単なサンプル", "file": "firstapp.md"}
+    ,{"name": "簡単なサンプル2", "file": "easysample.md"}
+    ,{"name": "Webサーバーを作る", "file": "webserver.md"}
+    ,{"name": "Expressを使う", "file": "express.md"}
+    ,{"name": "本格的なWebページらしく", "file": "expressrouting.md"}
+  ]
+}
