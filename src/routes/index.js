@@ -16,4 +16,11 @@ router.post('/detail', (req, res) => {
   })
 });
 
+//記事内容取得
+router.get('/test', (req, res) => {
+  console.log("success!!!!!!!!!!!!");
+  res.header('Content-Type', 'text/plain;charset=utf-8');
+  res.end('結果です！');
+});
+
 module.exports = router;
