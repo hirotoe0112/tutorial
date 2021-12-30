@@ -5,7 +5,6 @@ let dealjsonClass = new json();
 router.get('/', (req, res) => {
   let data = dealjsonClass.readalldata();
   res.render('index', {
-    title: 'Nodeチュートリアル',
     data: data
   })
 });
