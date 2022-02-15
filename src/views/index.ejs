@@ -10,7 +10,7 @@
   </div>
 
   <!--モーダルウインドウ-->
-  <div id="detail" class="modal-background" @click="close">
+  <div id="detail" class="modal-background" v-bind:class="{open: modal}" @click="close">
     <div class="modal-content">
       <div class="title">
         {{title}}

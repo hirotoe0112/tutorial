@@ -2,7 +2,8 @@
 let vueObj = {
   articles:[],
   title:"",
-  content:""
+  content:"",
+  modal:false
 };
 
 //vueオブジェクト作成
@@ -16,15 +17,10 @@ var app = new Vue({
       this.title = title;
       this.content = await res.text();
       //モーダルウインドウの表示
-      this.open();
-    },
-    open:function(){
-      //仮
-      document.querySelector('#detail').classList.add('open');
+      this.modal = true;
     },
     close:function(){
-      //仮
-      document.querySelector('#detail').classList.remove('open');
+      this.modal = false;
     }
   },
   mounted:function(){
