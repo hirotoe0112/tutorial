@@ -1,5 +1,5 @@
 {
-  "path": "/public/data",
+  "path": "./src/data",
   "list": [
     {"name": "NodeとJavaScript", "file": "overview.md"}
     ,{"name": "簡単なサンプル", "file": "firstapp.md"}

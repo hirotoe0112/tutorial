@@ -17,7 +17,17 @@ router.post('/detail', (req, res) => {
 });
 
 //記事内容取得
-router.get('/test', (req, res) => {
+router.get('/detail/:filename', (req, res) => {
+  //パラメータの取得
+  var filename = req.params.filename;
+  let data = dealjsonClass.readfilecontent(filename);
+  res.header('Content-Type', 'text/plain;charset=utf-8');
+  res.end(data);
+});
+
+//記事内容取得
+router.get('/test/:filename', (req, res) => {
+  console.log(req.url);
   console.log("success!!!!!!!!!!!!");
   res.header('Content-Type', 'text/plain;charset=utf-8');
   res.end('結果です！');

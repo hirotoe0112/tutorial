@@ -24,9 +24,9 @@ OpenDetail = async function(){
 
 //記事内容取得
 GetContent = async function(){
-  const res = await fetch('/test');
+  const res = await fetch('/detail/overview.md');
   const text = await res.text();
-  console.log(text);
+  document.querySelector('#detail .content').innerText = text;
 }
 
 //モーダルウインドウ非表示
