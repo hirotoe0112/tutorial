@@ -1,35 +1,37 @@
-//ページ読み込み時処理
-document.addEventListener('DOMContentLoaded', function(){
-  //各記事に対するイベント登録
-  var items = document.querySelectorAll('.item');
-  for(let i = 0; i < items.length; i++){
-    items[i].addEventListener('click', OpenDetail, false);
-    console.log(i);
+//バインドするデータ
+let vueObj = {
+  articles:[],
+  title:"",
+  content:""
+};
+
+//vueオブジェクト作成
+var app = new Vue({
+  el:'#main',
+  data:vueObj,
+  methods:{
+    detail: async function(title, filename){
+      //記事の内容を取得
+      const res = await fetch('/detail/' + filename);
+      this.title = title;
+      this.content = await res.text();
+      //モーダルウインドウの表示
+      this.open();
+    },
+    open:function(){
+      //仮
+      document.querySelector('#detail').classList.add('open');
+    },
+    close:function(){
+      //仮
+      document.querySelector('#detail').classList.remove('open');
+    }
+  },
+  mounted:function(){
+    //ページ読み込み時に全記事一覧取得
+    this.$nextTick(async function(){
+      var res = await fetch('/all');
+      this.articles = await res.json();
+    });
   }
-
-  //モーダルウインドウ背景に対するイベント登録
-  var modalback = document.querySelector('#detail')
-  modalback.addEventListener('click', CloseDetail, false);
-}, false);
-
-//モーダルウインドウ表示
-OpenDetail = async function(){
-  //記事内容取得
-  await GetContent();
-
-  //モーダル表示
-  console.log('open');
-  document.querySelector('#detail').classList.add('open');
-}
-
-//記事内容取得
-GetContent = async function(){
-  const res = await fetch('/detail/overview.md');
-  const text = await res.text();
-  document.querySelector('#detail .content').innerText = text;
-}
-
-//モーダルウインドウ非表示
-CloseDetail = function(){
-  document.querySelector('#detail').classList.remove('open');
-}
+});

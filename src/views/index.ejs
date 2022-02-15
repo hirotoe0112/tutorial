@@ -1,27 +1,22 @@
 <%- include('common/_header',{
     title : 'TOP'
 }); %>
-<main>
+<main id="main">
   <!--コンテンツ一覧-->
-  <div class="container">
-    <% for (var i in data.list){ %>
-      <div class="item" data-file="<%- data.list[i].file %>">
-        <%- data.list[i].name %>
-        <!--<form action="/detail" method="POST">
-          <input type="submit" class="title" value="<%- data.list[i].name %>">
-          <input type="hidden" name="filename" value="<%- data.list[i].file %>">
-        </form>-->
-      </div>
-    <% } %>
+  <div class="container" v-for="article in articles">
+    <div class="item" @click="detail(article.name, article.file)">
+      {{article.name}}
+    </div>
   </div>
 
   <!--モーダルウインドウ-->
-  <div id="detail" class="modal-background">
+  <div id="detail" class="modal-background" @click="close">
     <div class="modal-content">
       <div class="title">
-        Visual Studio Codeあれこれ
+        {{title}}
       </div>
       <div class="content">
+        {{content}}
       </div>
     </div>
   </div>
