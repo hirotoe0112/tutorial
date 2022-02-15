@@ -1,5 +1,6 @@
 var router = require('express').Router();
 const json = require('../js/json');
+const md = require('markdown-it')();
 let dealjsonClass = new json();
 
 //index
@@ -20,8 +21,10 @@ router.get('/detail/:filename', (req, res) => {
   //パラメータの取得
   var filename = req.params.filename;
   let data = dealjsonClass.readfilecontent(filename);
+  let html = md.render(data);
+  console.log(html);
   res.header('Content-Type', 'text/plain;charset=utf-8');
-  res.end(data);
+  res.end(html);
 });
 
 module.exports = router;
