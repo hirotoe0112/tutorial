@@ -68,6 +68,42 @@ header{
   border-bottom: 1px solid #8da2a7;
 }
 
+/*記事内容*/
+#detail h2{
+  font-size: 1.7em;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+#detail h3{
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+#detail p{
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+#detail ul{
+  margin-left: 30px;
+  list-style: disc;
+  line-height: 1.5;
+}
+
+#detail pre{
+  background-color: #ffffff;
+  padding:20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 0.8em;
+}
+
 /*footer*/
 footer{
   position: fixed;
